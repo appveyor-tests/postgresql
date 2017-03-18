@@ -1,0 +1,17 @@
+max_jobs: 1
+
+environment:
+  matrix:
+  - PGSQL_VERSION: 9.3
+  - PGSQL_VERSION: 9.4
+  - PGSQL_VERSION: 9.5
+  - PGSQL_VERSION: 9.6
+
+test_script:
+- ps: Start-Service "postgresql-x64-$env:PGSQL_VERSION"
+- SET PGUSER=postgres
+- SET PGPASSWORD=Password12!
+- PATH=C:\Program Files\PostgreSQL\%PGSQL_VERSION%\bin\;%PATH%
+- createdb TestDatabase
+
+build: off
