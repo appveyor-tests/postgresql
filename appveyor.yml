@@ -6,8 +6,10 @@ environment:
   - PGSQL_VERSION: 9.4
   - PGSQL_VERSION: 9.5
   - PGSQL_VERSION: 9.6
-
+  - PGSQL_VERSION: 10
+  
 test_script:
+- ps: if ($env:PGSQL_VERSION -eq '9.3' -or $env:PGSQL_VERSION -eq '9.4' -or $env:PGSQL_VERSION -eq '9.5' ) { Exit-AppveyorBuild }
 - ps: Start-Service "postgresql-x64-$env:PGSQL_VERSION"
 - SET PGUSER=postgres
 - SET PGPASSWORD=Password12!
