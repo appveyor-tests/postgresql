@@ -9,7 +9,9 @@ environment:
   - PGSQL_VERSION: 10
   
 test_script:
-- ps: if ($env:PGSQL_VERSION -eq '9.3' -or $env:PGSQL_VERSION -eq '9.4' -or $env:PGSQL_VERSION -eq '9.5' ) { Exit-AppveyorBuild }
+- ps: $env:isVs2017 = 'false'
+- ps: if (test-path "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community") { $env:isVs2017 = 'true' }
+- ps: if ($env:isVs2017 -eq 'true' -and ($env:PGSQL_VERSION -eq '9.3' -or $env:PGSQL_VERSION -eq '9.4' -or $env:PGSQL_VERSION -eq '9.5')) { Exit-AppveyorBuild }
 - ps: Start-Service "postgresql-x64-$env:PGSQL_VERSION"
 - SET PGUSER=postgres
 - SET PGPASSWORD=Password12!
