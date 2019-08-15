@@ -7,4 +7,4 @@ $env:PGPASSWORD = 'Password12!'
 $oldpath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
 $newpath = "$oldpath;C:\Program Files\PostgreSQL\$env:PGSQL_VERSION\bin\"
 Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath
-createdb TestDatabase
+cmd /c createdb TestDatabase
