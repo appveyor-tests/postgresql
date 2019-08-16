@@ -5,7 +5,7 @@ Start-Service "postgresql-x64-$env:PGSQL_VERSION"
 $env:PGUSER = 'postgres'
 $env:PGPASSWORD = 'Password12!'
 $oldpath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
-$newpath = "$oldpath;C:\Program Files\PostgreSQL\$env:PGSQL_VERSION\bin\"
+$newpath = "$oldpath;C:\Program Files\PostgreSQL\$env:PGSQL_VERSION\bin\;C:\Program Files\PostgreSQL\$env:PGSQL_VERSION\lib\"
 Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath
-#echo (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
+echo (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
 cmd /c createdb #TestDatabase
