@@ -8,7 +8,6 @@ get-service $s_name | select Displayname,Status,ServiceName
 $env:PGUSER = 'postgres'
 $env:PGPASSWORD = 'Password12!'
 $env:path = $env:path + ";C:\Program Files\PostgreSQL\$env:PGSQL_VERSION\bin\"
-echo $env:path
 cmd /c createdb.exe TestDatabase
 if($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode) }
 
