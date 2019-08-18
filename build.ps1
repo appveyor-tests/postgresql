@@ -12,4 +12,5 @@ $oldpath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentC
 $newpath = "$oldpath;C:\Program Files\PostgreSQL\$env:PGSQL_VERSION\bin\;C:\Program Files\PostgreSQL\$env:PGSQL_VERSION\lib\"
 Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath
 echo (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
+dir C:\Program Files\PostgreSQL\$env:PGSQL_VERSION\bin\
 cmd /c createdb #TestDatabase
