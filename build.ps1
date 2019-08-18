@@ -12,9 +12,9 @@ $env:PGPASSWORD = 'Password12!'
 #$newpath = "$oldpath;C:\Program Files\PostgreSQL\$env:PGSQL_VERSION\bin\;C:\Program Files\PostgreSQL\$env:PGSQL_VERSION\lib\"
 #Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath
 #echo (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
-
-
-cmd /c 'C:\Program Files\PostgreSQL\9.3\bin\createdb.exe' TestDatabase
+$env:path = $env:path + ";C:\Program Files\PostgreSQL\$env:PGSQL_VERSION\bin\"
+cmd /c createdb.exe TestDatabase
+#cmd /c 'C:\Program Files\PostgreSQL\9.3\bin\createdb.exe' TestDatabase
 if($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode) }
 
 
