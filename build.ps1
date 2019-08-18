@@ -14,6 +14,7 @@ Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Co
 echo (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
 dir "C:\Program Files\PostgreSQL\$env:PGSQL_VERSION\bin\"
 
-cmd /c createdb #TestDatabase
+cmd /c where createdb.exe
+cmd /c createdb TestDatabase
 
 #cmd /c "cd C:\&dir /s /b createdb.*"
