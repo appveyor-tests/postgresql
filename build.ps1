@@ -16,4 +16,4 @@ dir "C:\Program Files\PostgreSQL\$env:PGSQL_VERSION\bin\"
 
 cmd /c createdb #TestDatabase
 
-cmd /c "cd C:\&dir /s /b createdb.*"
+#cmd /c "cd C:\&dir /s /b createdb.*"
