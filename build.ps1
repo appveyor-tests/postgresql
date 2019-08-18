@@ -15,6 +15,6 @@ $env:PGPASSWORD = 'Password12!'
 #echo (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
 
 
-cmd /c C:\Program Files\PostgreSQL\9.3\bin TestDatabase
+cmd /c 'C:\Program Files\PostgreSQL\9.3\bin\createdb.exe' TestDatabase
 
 
