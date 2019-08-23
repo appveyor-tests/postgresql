@@ -4,8 +4,7 @@ Write-Host "Is VS 2017?: $env:isVs2017"
 if ($env:isVs2017 -eq 'true' -and ($env:PGSQL_VERSION -eq '9.3' -or $env:PGSQL_VERSION -eq '9.4' -or $env:PGSQL_VERSION -eq '9.5')) { 
   Write-Host "It's Visual Sturdio 2017, exiting..."
   #cmd /c appveyor exit #Exit-AppveyorBuild
-  #return
-  exit 99101
+  return
 }
 $s_name = "postgresql-x64-$env:PGSQL_VERSION"
 dir "C:\Program Files\PostgreSQL\"
