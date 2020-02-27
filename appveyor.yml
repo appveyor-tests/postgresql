@@ -1,4 +1,4 @@
 test_script:
-- ps: .\test-pgsql.ps1
+- ps: .\test_pgsql.ps1
 
 build: off
