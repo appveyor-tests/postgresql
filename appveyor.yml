@@ -1,2 +1,4 @@
 test_script:
 - ps: .\test-pgsql.ps1
+
+build: off
