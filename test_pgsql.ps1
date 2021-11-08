@@ -1,6 +1,7 @@
 $pg_versions = @('9.3', '9.4', '9.5', '9.6', '10')
 if (test-path "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community") { $pg_versions = @('9.6', '10') }
-if (test-path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community") { $pg_versions = @('9.6', '10', '11', '12') }
+if (test-path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community") { $pg_versions = @('9.6', '10', '11', '12', '13') }
+if (test-path "C:\Program Files\Microsoft Visual Studio\2022\Community") { $pg_versions = @('9.6', '10', '11', '12', '13') }
 
 dir "C:\Program Files\PostgreSQL\"
 $env:PGUSER = 'postgres'
